@@ -96,7 +96,10 @@ public class MortgageForFinishedHousing extends BasePage {
                 .forEach(elem -> {
                     if (elem.getText().equalsIgnoreCase(fieldName)) {
                         if (fieldName.equalsIgnoreCase("Молодая семья")) {
-                            //familyButton.click();
+                            /*if (familyButton.getAttribute("ariaChecked").equalsIgnoreCase("true")) {
+                            }*/ //else {
+                                //familyButton.click();
+                            //}
                         }
                     }
                 });
