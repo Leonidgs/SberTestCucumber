@@ -27,7 +27,7 @@ public class StartPage extends BasePage {
      */
 
     public StartPage selectBaseMenu(String nameBaseMenu) {
-        killCockie.click();
+            //killCockie.click();
         for (WebElement menuItem : menuBaseList) {
             if (menuItem.getText().equalsIgnoreCase(nameBaseMenu)) {
                 action.moveToElement(menuItem).click().build().perform();

@@ -1,7 +1,9 @@
 package ru.appline.framework.managers;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,6 +32,9 @@ public class InitManager {
      */
     public static void initFramework() {
         getDriver().manage().window().maximize();
+  /*      new WebDriverWait(getDriver(), 1).until(
+                webDriver -> ((JavascriptExecutor) webDriver).
+                        executeScript("return document.readyState").equals("complete"));*/
         getDriver().manage().timeouts().implicitlyWait(Integer.parseInt(props.getProperty(IMPLICITLY_WAIT)), TimeUnit.SECONDS);
         getDriver().manage().timeouts().pageLoadTimeout(Integer.parseInt(props.getProperty(PAGE_LOAD_TIMEOUT)), TimeUnit.SECONDS);
         getDriver().get(props.getProperty(APP_URL));
