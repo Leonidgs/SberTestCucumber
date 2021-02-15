@@ -41,12 +41,12 @@ public class Steps {
 
     @Допустим("Проверяем выключенную опцию доп. страхование {string}")
     public void проверяем_выключенную_опцию_Страхование_жизни_и_здоровья(String value) {
-        app.mortgagePage().checkFieldOnOrOffByName(value);
+        app.mortgagePage().offInssurens(value);
     }
 
     @Допустим("Проверяем включенную опцию молодая семья {string}")
     public void проверяем_включенную_опцию_Молодая_семья(String value) {
-        app.mortgagePage().checkFieldOnOrOffByName(value);
+        app.mortgagePage().checkNewFamilyButton(value);
     }
 
     @Допустим("Проверяем сумму ежемесячного платежа {string}")

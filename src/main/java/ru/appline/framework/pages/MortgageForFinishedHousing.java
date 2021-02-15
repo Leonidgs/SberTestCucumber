@@ -63,28 +63,48 @@ public class MortgageForFinishedHousing extends BasePage {
         return this;
     }
 
-    public MortgageForFinishedHousing checkFieldOnOrOffByName(String fieldName) {
+ /*   public MortgageForFinishedHousing checkFieldOnOrOffByName(String fieldName) {
         checkAdditionalButtons.stream()
                 .forEach(elem -> {
                     if (elem.getText().equalsIgnoreCase(fieldName)) {
                         if (fieldName.equalsIgnoreCase("Страхование жизни и здоровья")) {
-                            offInssurens();
+                            //offInssurens();
                         }else if (fieldName.equalsIgnoreCase("Молодая семья")) {
                             checkNewFamilyButton();
                         }
                     }
                 });
         return this;
-    }
+    }*/
 
     //Убираем иншуренс
-    public MortgageForFinishedHousing offInssurens() {
-        insuranceButton.click();
+    public MortgageForFinishedHousing offInssurens(String fieldName) {
+        checkAdditionalButtons.stream()
+                .forEach(elem -> {
+                    if (elem.getText().equalsIgnoreCase(fieldName)) {
+                        if (fieldName.equalsIgnoreCase("Страхование жизни и здоровья")) {
+                            insuranceButton.click();
+                        }
+                    }
+                });
+        return this;
+    }
+
+    //Ставим семью
+    public MortgageForFinishedHousing checkNewFamilyButton(String fieldName) {
+        checkAdditionalButtons.stream()
+                .forEach(elem -> {
+                    if (elem.getText().equalsIgnoreCase(fieldName)) {
+                        if (fieldName.equalsIgnoreCase("Молодая семья")) {
+                            //familyButton.click();
+                        }
+                    }
+                });
         return this;
     }
 
     //Ставим молодую семью
-    public MortgageForFinishedHousing checkNewFamilyButton() {
+  /*  public MortgageForFinishedHousing checkNewFamilyButton() {
         if (familyButton.getAttribute("ariaChecked").equalsIgnoreCase("true")) {
             return this;
         } else {
@@ -92,7 +112,7 @@ public class MortgageForFinishedHousing extends BasePage {
             return this;
         }
     }
-
+*/
     //Проверяю ежемесячный платёж
     public MortgageForFinishedHousing checkField(String value) {
         getDriver().switchTo().defaultContent();
